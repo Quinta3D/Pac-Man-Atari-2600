@@ -10,15 +10,17 @@
 *{box-sizing:border-box}
 html,body,#game{
 margin:0;padding:0;width:100%;height:100%;
-overflow:hidden;background:#000
+overflow:hidden;background:#000;
 }
 #game{
-position:fixed;inset:0;width:100vw;height:100dvh;
+position:fixed;inset:0;
+width:100vw;height:100dvh;
 }
 #game canvas{
 max-width:100%!important;
 max-height:100%!important;
-object-fit:contain
+object-fit:contain;
+touch-action:none;
 }
 
 /* Ocultar FAST y SLOW */
@@ -29,12 +31,17 @@ object-fit:contain
 display:none!important;
 }
 
-/* Distribución para teléfono vertical */
+/* Mejor respuesta táctil */
+button,[role="button"],canvas{
+touch-action:manipulation;
+}
+
+/* Vertical */
 @media (orientation:portrait){
 #game{height:100dvh}
 }
 
-/* Ajuste para teléfono horizontal */
+/* Horizontal */
 @media (orientation:landscape){
 #game{height:100dvh}
 }
@@ -51,15 +58,10 @@ EJS_gameUrl="./PacMan.a26";
 EJS_startOnLoaded=true;
 EJS_pathtodata="https://cdn.emulatorjs.org/stable/data/";
 
-function ajustarPantalla(){
+window.addEventListener("resize",()=>{
 const g=document.getElementById("game");
 g.style.width=window.innerWidth+"px";
 g.style.height=window.innerHeight+"px";
-}
-window.addEventListener("resize",ajustarPantalla);
-window.addEventListener("orientationchange",()=>{
-setTimeout(ajustarPantalla,300);
-setTimeout(ajustarPantalla,1000);
 });
 </script>
 
@@ -67,4 +69,3 @@ setTimeout(ajustarPantalla,1000);
 </body>
 </html>
 ```
-
