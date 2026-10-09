@@ -3,25 +3,23 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Atari 2600</title>
 <style>
-*{box-sizing:border-box}
-html,body,#game-container{
-margin:0;width:100%;height:100%;overflow:hidden;background:#000
+html,body,#game{
+margin:0;width:100%;height:100%;
+background:#000;overflow:hidden
 }
-#game-container{
-position:fixed;inset:0;width:100vw;height:100vh
-}
+#game{position:fixed;inset:0}
 </style>
 </head>
 <body>
-<div id="game-container"></div>
+<div id="game"></div>
 
 <script>
-EJS_player="#game-container";
-EJS_core="atari2600";
-EJS_gameUrl="PacMan.a26";
+EJS_player="#game";
+EJS_core="stella2014";
+EJS_gameUrl="./PacMan.a26";
 EJS_startOnLoaded=true;
 EJS_pathtodata="https://cdn.emulatorjs.org/stable/data/";
 </script>
